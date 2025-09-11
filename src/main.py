@@ -27,12 +27,6 @@ def user_control():
     while True:
         wait(20, MSEC)
 
-def buttonDown(button_pressed) 
-    motor1.temperature(units) 
-    motor2.temperature(units) 
-    motor3.temperature(units) 
-    motor4.temperature(units) 
-
         # Create the left Motors and group them under the
         # MotorGroup "left_motors".
         left_motor_a = Motor(Ports.PORT1, GearSetting.RATIO_18_1, False)
@@ -46,6 +40,14 @@ def buttonDown(button_pressed)
         # Construct a 4-Motor Drivetrain "drivetrain" with the
         # DriveTrain class.
         drivetrain = DriveTrain(left_motors, right_motors, 319.19, 295, 40, MM, 1)
+
+def buttonDown(button_pressed) 
+    motor1.temperature(units) 
+    motor2.temperature(units) 
+    motor3.temperature(units) 
+    motor4.temperature(units) 
+
+        
 
 
 
