@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------- #
 #                                                                              #
 # 	Module:       main.py                                                      #
-# 	Author:       codespace                                                    #
+# 	Author:       Jonah and Liam                                                    #
 # 	Created:      9/9/2025, 9:59:41 PM                                         #
 # 	Description:  V5 project                                                   #
 #                                                                              #
@@ -11,6 +11,9 @@
 from vex import *
 
 brain = Brain()
+optic = optic(ports.port1)
+color = optical.color(blue)
+controller = controller()
 
 def autonomous():
     brain.screen.clear_screen()
@@ -24,6 +27,11 @@ def user_control():
     while True:
         wait(20, MSEC)
 
+def buttonDown(button_pressed) 
+    motor1.temperature(units) 
+    motor2.temperature(units) 
+    motor3.temperature(units) 
+    motor4.temperature(units) 
 # create competition instance
 comp = Competition(user_control, autonomous)
 
