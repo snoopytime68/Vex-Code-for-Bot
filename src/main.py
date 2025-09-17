@@ -42,18 +42,18 @@ def user_control():
         wait(20, MSEC)
 
         while True:
-        while not controller_1.buttonB.pressing():
-            wait(5, MSEC)
-        motor_3.spin(FORWARD)
-        wait(5, MSEC)
+            while not controller_1.buttonB.pressing():
+                wait(5, MSEC)
+                motor_3.spin(FORWARD)
+                wait(5, MSEC)
         while True:
-        while not controller_1.buttonA.pressing():
-            wait(5, MSEC)
-        motor_1.spin(FORWARD, 10, VOLT)
-        motor_2.spin(FORWARD, 10, VOLT)
-        wait(5, MSEC)
+            while not controller_1.buttonA.pressing():
+                wait(5, MSEC)
+                motor_1.spin(FORWARD, 10, VOLT)
+                motor_2.spin(FORWARD, 10, VOLT)
+                wait(5, MSEC)
 
-def buttonDown(button_pressed) 
+def buttonDown(button_pressed):
     motor1.temperature() 
     motor2.temperature() 
     motor3.temperature() 
