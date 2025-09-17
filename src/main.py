@@ -1,3 +1,70 @@
+#region VEXcode Generated Robot Configuration
+from vex import *
+import urandom
+import math
+
+# Brain should be defined by default
+brain=Brain()
+
+# Robot configuration code
+motor_1 = Motor(Ports.PORT1, GearSetting.RATIO_18_1, False)
+motor_2 = Motor(Ports.PORT2, GearSetting.RATIO_18_1, False)
+motor_3 = Motor(Ports.PORT3, GearSetting.RATIO_18_1, False)
+motor_4 = Motor(Ports.PORT4, GearSetting.RATIO_18_1, False)
+optical_5 = Optical(Ports.PORT5)
+controller_1 = Controller(PRIMARY)
+
+
+# wait for rotation sensor to fully initialize
+wait(30, MSEC)
+
+
+# Make random actually random
+def initializeRandomSeed():
+    wait(100, MSEC)
+    random = brain.battery.voltage(MV) + brain.battery.current(CurrentUnits.AMP) * 100 + brain.timer.system_high_res()
+    urandom.seed(int(random))
+      
+# Set random seed 
+initializeRandomSeed()
+
+
+# Color to String Helper
+def convert_color_to_string(col):
+    if col == Color.RED:
+        return "red"
+    if col == Color.GREEN:
+        return "green"
+    if col == Color.BLUE:
+        return "blue"
+    if col == Color.WHITE:
+        return "white"
+    if col == Color.YELLOW:
+        return "yellow"
+    if col == Color.ORANGE:
+        return "orange"
+    if col == Color.PURPLE:
+        return "purple"
+    if col == Color.CYAN:
+        return "cyan"
+    if col == Color.BLACK:
+        return "black"
+    if col == Color.TRANSPARENT:
+        return "transparent"
+    return ""
+
+def play_vexcode_sound(sound_name):
+    # Helper to make playing sounds from the V5 in VEXcode easier and
+    # keeps the code cleaner by making it clear what is happening.
+    print("VEXPlaySound:" + sound_name)
+    wait(5, MSEC)
+
+# add a small delay to make sure we don't print in the middle of the REPL header
+wait(200, MSEC)
+# clear the console to make sure we don't have the REPL in the console
+print("\033[2J")
+
+#endregion VEXcode Generated Robot Configuration
 # ---------------------------------------------------------------------------- #
 #                                                                              #
 # 	Module:       main.py                                                      #
@@ -25,9 +92,6 @@ right_motors = MotorGroup(right_motor_a, right_motor_b)
 drivetrain = DriveTrain(left_motors, right_motors, 319.19, 295, 40, MM, 1)
 
 brain = Brain()
-optic = optic(ports.port1)
-color = optical.color(blue)
-controller = controller()
 
 def autonomous():
     brain.screen.clear_screen()
@@ -54,10 +118,10 @@ def user_control():
                 wait(5, MSEC)
 
 def buttonDown(button_pressed):
-    motor1.temperature() 
-    motor2.temperature() 
-    motor3.temperature() 
-    motor4.temperature() 
+    motor_1.temperature() 
+    motor_2.temperature() 
+    motor_3.temperature() 
+    motor_4.temperature() 
 
 # create competition instance
 comp = Competition(user_control, autonomous)
