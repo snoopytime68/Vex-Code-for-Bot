@@ -11,9 +11,9 @@ motor_1 = Motor(Ports.PORT1, GearSetting.RATIO_18_1, False)
 motor_2 = Motor(Ports.PORT2, GearSetting.RATIO_18_1, False)
 motor_3 = Motor(Ports.PORT3, GearSetting.RATIO_18_1, False)
 motor_4 = Motor(Ports.PORT4, GearSetting.RATIO_18_1, False)
+motor_5 = motor(Ports.PORT5, GearSetting.RATIO_18_1, False)
 optical_5 = Optical(Ports.PORT5)
 controller_1 = Controller(PRIMARY)
-
 
 # wait for rotation sensor to fully initialize
 wait(30, MSEC)
