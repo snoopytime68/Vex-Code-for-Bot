@@ -7,11 +7,21 @@ import math
 brain=Brain()
 
 # Robot configuration code
+# Drive Train
 motor_1 = Motor(Ports.PORT1, GearSetting.RATIO_18_1, False)
 motor_2 = Motor(Ports.PORT2, GearSetting.RATIO_18_1, False)
 motor_3 = Motor(Ports.PORT3, GearSetting.RATIO_18_1, False)
 motor_4 = Motor(Ports.PORT4, GearSetting.RATIO_18_1, False)
+
+# Intake
 motor_5 = motor(Ports.PORT5, GearSetting.RATIO_18_1, False)
+motor_6 = motor(Ports.PORT6, GearSetting.RATIO_18_1, False)
+
+# Elevator
+motor_7 = motor(Ports.PORT5, GearSetting.RATIO_18_1, False)
+motor_8 = motor(Ports.PORT6, GearSetting.RATIO_18_1, False)
+
+# Malicous
 optical_5 = Optical(Ports.PORT5)
 controller_1 = Controller(PRIMARY)
 
@@ -79,13 +89,13 @@ from vex import *
 
 # Create the left Motors and group them under the
 # MotorGroup "left_motors".
-left_motor_a = Motor(Ports.PORT1, GearSetting.RATIO_18_1, False)
-left_motor_b = Motor(Ports.PORT2, GearSetting.RATIO_18_1, False)
+left_motor_a = Motor(Ports.PORT1, GearSetting.RATIO_18_1, True)
+left_motor_b = Motor(Ports.PORT2, GearSetting.RATIO_18_1, True)
 left_motors = MotorGroup(left_motor_a, left_motor_b)
 # Create the right Motors and group them under the
 # MotorGroup "right_motors".
-right_motor_a = Motor(Ports.PORT3, GearSetting.RATIO_18_1, True)
-right_motor_b = Motor(Ports.PORT4, GearSetting.RATIO_18_1, True)
+right_motor_a = Motor(Ports.PORT3, GearSetting.RATIO_18_1, False)
+right_motor_b = Motor(Ports.PORT4, GearSetting.RATIO_18_1, False)
 right_motors = MotorGroup(right_motor_a, right_motor_b)
 # Construct a 4-Motor Drivetrain "drivetrain" with the
 # DriveTrain class.
@@ -104,18 +114,26 @@ def user_control():
     # place driver control in this while loop
     while True:
         wait(20, MSEC)
-
+        #Intake Control. Spits out.
         while True:
             while not controller_1.buttonB.pressing():
                 wait(5, MSEC)
-                motor_3.spin(FORWARD)
+                motor_5.spin(REVERSE, 10, VOLT)
+                motor_6.spin(REVERSE, 10, VOLT)
                 wait(5, MSEC)
+        
+        #Intake Control. Eats it.
         while True:
             while not controller_1.buttonA.pressing():
                 wait(5, MSEC)
-                motor_1.spin(FORWARD, 10, VOLT)
-                motor_2.spin(FORWARD, 10, VOLT)
+                # Intake
+                motor_5.spin(FORWARD, 10, VOLT)
+                motor_6.spin(FORWARD, 10, VOLT)
+                # Elevator
+                motor_7.sping(FORWARD, 12, VOLT)
+                motor_8.sping(FORWARD, 12, VOLT)
                 wait(5, MSEC)
+
 
 def buttonDown(button_pressed):
     motor_1.temperature() 
