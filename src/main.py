@@ -114,26 +114,24 @@ def user_control():
     # place driver control in this while loop
     while True:
         wait(20, MSEC)
-        #Intake Control. Spits out.
-        while True:
-            while controller_1.buttonB.pressing():
-                wait(5, MSEC)
-                motor_5.spin(REVERSE, 10, VOLT)
-                motor_6.spin(FORWARD, 10, VOLT)
-                motor_7.spin(FORWARD, 10, VOLT)
-                wait(5, MSEC)
-        
-        #Intake Control. Eats it.
-        while True:
-            while controller_1.buttonA.pressing():
-                wait(5, MSEC)
-                # Intake
-                motor_5.spin(FORWARD, 10, VOLT)
-                motor_6.spin(REVERSE, 10, VOLT)
-                motor_7.spin(FORWARD, 10, VOLT)
-                # Elevator
-                motor_8.spin(FORWARD, 10, VOLT)
-                wait(5, MSEC)
+        # Intake Controls
+        if controller_1.buttonA.pressing():
+            motor_5.spin(FORWARD, 10, VOLT)
+            motor_6.spin(REVERSE, 10, VOLT)
+            motor_7.spin(FORWARD, 10, VOLT)
+            pass
+        # Outtake Controls
+        elif controller_1.buttonB.pressing():
+            motor_5.spin(REVERSE, 10, VOLT)
+            motor_6.spin(FORWARD, 10, VOLT)
+            motor_7.spin(REVERSE, 10, VOLT)
+            pass
+        # Stops motors if button A or B is not being pressed
+        else:
+            motor_5.stop()                
+            motor_6.stop()                
+            motor_7.stop()                
+            pass
 
 
 def buttonDown(button_pressed):
