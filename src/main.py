@@ -14,15 +14,15 @@ motor_3 = Motor(Ports.PORT3, GearSetting.RATIO_18_1, False)
 motor_4 = Motor(Ports.PORT4, GearSetting.RATIO_18_1, False)
 
 # Intake
-motor_5 = motor(Ports.PORT5, GearSetting.RATIO_18_1, False)
-motor_6 = motor(Ports.PORT6, GearSetting.RATIO_18_1, False)
+motor_5 = Motor(Ports.PORT5, GearSetting.RATIO_18_1, False)
+motor_6 = Motor(Ports.PORT6, GearSetting.RATIO_18_1, False)
 
 # Elevator
-motor_7 = motor(Ports.PORT5, GearSetting.RATIO_18_1, False)
-motor_8 = motor(Ports.PORT6, GearSetting.RATIO_18_1, False)
+motor_7 = Motor(Ports.PORT7, GearSetting.RATIO_18_1, False)
+motor_8 = Motor(Ports.PORT8, GearSetting.RATIO_18_1, False)
 
 # Malicous
-optical_5 = Optical(Ports.PORT5)
+optical_20 = Optical(Ports.PORT5)
 controller_1 = Controller(PRIMARY)
 
 # wait for rotation sensor to fully initialize
@@ -116,22 +116,23 @@ def user_control():
         wait(20, MSEC)
         #Intake Control. Spits out.
         while True:
-            while not controller_1.buttonB.pressing():
+            while controller_1.buttonB.pressing():
                 wait(5, MSEC)
                 motor_5.spin(REVERSE, 10, VOLT)
-                motor_6.spin(REVERSE, 10, VOLT)
+                motor_6.spin(FORWARD, 10, VOLT)
+                motor_7.spin(FORWARD, 10, VOLT)
                 wait(5, MSEC)
         
         #Intake Control. Eats it.
         while True:
-            while not controller_1.buttonA.pressing():
+            while controller_1.buttonA.pressing():
                 wait(5, MSEC)
                 # Intake
                 motor_5.spin(FORWARD, 10, VOLT)
-                motor_6.spin(FORWARD, 10, VOLT)
+                motor_6.spin(REVERSE, 10, VOLT)
+                motor_7.spin(FORWARD, 10, VOLT)
                 # Elevator
-                motor_7.sping(FORWARD, 12, VOLT)
-                motor_8.sping(FORWARD, 12, VOLT)
+                motor_8.spin(FORWARD, 10, VOLT)
                 wait(5, MSEC)
 
 
