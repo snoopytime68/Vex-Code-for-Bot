@@ -133,7 +133,6 @@ def user_control():
             motor_7.stop()                
             pass
 
-
 def buttonDown(button_pressed) 
     motor1.temperature() 
     motor2.temperature() 
