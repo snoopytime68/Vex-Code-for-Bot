@@ -134,10 +134,10 @@ def user_control():
             pass
 
 def buttonDown(button_pressed) 
-    motor1_.temperature() 
-    motor2_.temperature() 
-    motor3_.temperature() 
-    motor4_.temperature()
+    motor_1.temperature() 
+    motor_2.temperature() 
+    motor_3.temperature() 
+    motor_4.temperature()
 
 # create competition instance
 comp = Competition(user_control, autonomous)
