@@ -180,23 +180,65 @@ def user_control():
     while True:
         wait(20, MSEC)
         # Intake Controls
-        if controller_1.buttonA.pressing():
+        if controller_1.buttonR2.pressing():
             motor_5.spin(FORWARD, 10, VOLT)
             motor_6.spin(REVERSE, 10, VOLT)
             motor_7.spin(FORWARD, 10, VOLT)
+            # Elevator
+            motor_8.spin(REVERSE, 10, VOLT)
+            motor_9.spin(FORWARD, 10, VOLT)
             pass
         # Outtake Controls
-        elif controller_1.buttonB.pressing():
+        elif controller_1.buttonR1.pressing():
             motor_5.spin(REVERSE, 10, VOLT)
             motor_6.spin(FORWARD, 10, VOLT)
             motor_7.spin(REVERSE, 10, VOLT)
+            # Elevator 
+            motor_8.spin(REVERSE, 10, VOLT)
+            motor_9.spin(FORWARD, 10, VOLT)
             pass
-        # Stops motors if button A or B is not being pressed
+        # Stops motors if button R1 or R2 is not being pressed
         else:
             motor_5.stop()                
             motor_6.stop()                
-            motor_7.stop()                
+            motor_7.stop()   
+            #Elevator
+            motor_8.stop()
+            motor_9.stop()            
             pass
+#scoring output
+        if controller_1.buttonLeft.pressed():
+        
+            if controller_1.buttonL2.pressing():
+                motor_10.spin(FORWARD, 10, VOLT)
+                pass
+
+            else:
+                motor_10.stop()
+                pass
+        elif controller_1.buttonRight.pressed():
+        
+        else:
+
+
+
+            #Debug 
+        if controller_1.buttonUp.pressing():
+            motor_1.temperature() 
+            motor_2.temperature() 
+            motor_3.temperature() 
+            motor_4.temperature()
+            motor_5.temperature() 
+            motor_6.temperature() 
+            motor_7.temperature() 
+            motor_8.temperature()
+            motor_9.temperature() 
+            motor_10.temperature()
+            pass
+            
+
+
+
 
 
 # create competition instance
