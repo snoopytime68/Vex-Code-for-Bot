@@ -211,11 +211,10 @@ def user_control():
             motor_9.stop()            
             pass
 #scoring output
-        if controller_1.buttonLeft.pressed():
+        if controller_1.buttonLeft.pressed(true):
             #Piston code to open red gate
 
             #Unload red mag
-        
             if controller_1.buttonL2.pressing():
                 motor_10.spin(FORWARD, 10, VOLT)
                 pass
@@ -225,7 +224,8 @@ def user_control():
                 pass
             pass
             
-        elif controller_1.buttonRight.pressed():
+        elif controller_1.buttonRight.pressed(true):
+
             #Piston code to open blue gate
             pass
 
