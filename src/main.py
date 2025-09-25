@@ -25,7 +25,7 @@ motor_5 = Motor(Ports.PORT5, GearSetting.RATIO_18_1, False)
 motor_6 = Motor(Ports.PORT6, GearSetting.RATIO_18_1, False)
 
 # Elevator
-motor_7 = Motor(Ports.PORT7, GearSetting.RATIO_18_1, False)
+motor_7 = Motor(Ports.PORT7, GearSetting.RATIO_18_1, True)
 motor_8 = Motor(Ports.PORT8, GearSetting.RATIO_18_1, False)
 
 # Scoring output 
