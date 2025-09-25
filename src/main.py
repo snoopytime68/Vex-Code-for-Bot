@@ -28,6 +28,10 @@ motor_6 = Motor(Ports.PORT6, GearSetting.RATIO_18_1, False)
 motor_7 = Motor(Ports.PORT7, GearSetting.RATIO_18_1, False)
 motor_8 = Motor(Ports.PORT8, GearSetting.RATIO_18_1, False)
 
+# Scoring output 
+motor_9 = Motor(Ports.PORT9, GearSetting.RATIO_18_1, False)
+motor_10 = Motor(Ports.PORT10, GearSetting.RATIO_18_1, False)
+
 # Malicous
 optical_20 = Optical(Ports.PORT5)
 controller_1 = Controller(PRIMARY)
@@ -208,6 +212,9 @@ def user_control():
             pass
 #scoring output
         if controller_1.buttonLeft.pressed():
+            #Piston code to open red gate
+
+            #Unload red mag
         
             if controller_1.buttonL2.pressing():
                 motor_10.spin(FORWARD, 10, VOLT)
@@ -216,18 +223,23 @@ def user_control():
             else:
                 motor_10.stop()
                 pass
+            pass
+            
         elif controller_1.buttonRight.pressed():
-        
+            #Piston code to open blue gate
+            pass
+
+            #Unload blue mag
         else:
 
-
+            pass
 
             #Debug 
         if controller_1.buttonUp.pressing():
-            motor_1.temperature() 
-            motor_2.temperature() 
-            motor_3.temperature() 
-            motor_4.temperature()
+            left_motor_a.temperature() 
+            left_motor_b.temperature() 
+            right_motor_a.temperature() 
+            right_motor_b.temperature()
             motor_5.temperature() 
             motor_6.temperature() 
             motor_7.temperature() 
